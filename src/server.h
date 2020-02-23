@@ -769,24 +769,38 @@ struct sharedObjectsStruct {
 };
 
 /* ZSETs use a specialized version of Skiplists */
+/* 节点 */
 typedef struct zskiplistNode {
+    /* 成员对象 */
     sds ele;
+    /* 分值 */
     double score;
+    /* 后退指针 */
     struct zskiplistNode *backward;
+    /* 层 */
     struct zskiplistLevel {
+        /* 前进指针 */
         struct zskiplistNode *forward;
+        /* 跨度 */
         unsigned int span;
     } level[];
 } zskiplistNode;
 
+/* 链表 */
 typedef struct zskiplist {
+    /* 表头节点，表尾节点 */
     struct zskiplistNode *header, *tail;
+    /* 表中长度 */
     unsigned long length;
+    /* 表中最大节点层数*/
     int level;
 } zskiplist;
 
+/* Sorted sets */
 typedef struct zset {
+    /* 字典表 */
     dict *dict;
+    /* 跳跃表 */
     zskiplist *zsl;
 } zset;
 

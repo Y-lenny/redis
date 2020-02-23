@@ -67,9 +67,13 @@ struct __attribute__ ((__packed__)) sdshdr32 {
     char buf[];
 };
 struct __attribute__ ((__packed__)) sdshdr64 {
+    /* buf已使用空间的长度 */
     uint64_t len; /* used */
+    /* buf最大容量 */
     uint64_t alloc; /* excluding the header and null terminator */
+    /* 总是占用一个字节。其中的最低3个bit用来表示header的类型。header的类型共有5种 */
     unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    /* buf空间 */
     char buf[];
 };
 
