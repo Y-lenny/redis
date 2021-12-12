@@ -33,3 +33,6 @@ deps/lua/src/liblua.a
 Makefile.dep
 .vscode/*
 .idea/*
+.idea/misc.xml
+cmake-build-debug/*
+cmake-build-debug/CMakeFiles/clion-log.txt
