@@ -877,7 +877,7 @@ typedef struct zskiplistNode {
     } level[];
 } zskiplistNode;
 
-/* 链表 */
+/* 跳跃表 */
 typedef struct zskiplist {
     /* 表头节点，表尾节点 */
     struct zskiplistNode *header, *tail;
